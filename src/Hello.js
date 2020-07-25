@@ -2,10 +2,12 @@ import React from 'react';
 
 
 // 컴포넌트 생성하기 대문자로 시작할 것!
-function Hello(){
-    
+function Hello(props){
+    console.log(props);
     return (
-        <div>안녕하세요!!</div>
+    <div style={{
+        color:props.color
+    }}>안녕하세요!!{props.name}</div>
     )
 }
 

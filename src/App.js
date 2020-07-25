@@ -1,6 +1,9 @@
 import React from 'react';
 import './App.css';
 import Hello from './Hello';
+import Hi from './Hi'
+import Wrapper from './wrapper';
+
 function App() {
   const name = 'react';
   const style = {
@@ -15,11 +18,13 @@ function App() {
     //2.1 <></> 도 사용해도 된다.
     {/*주석주석주석*/}
   return (
-    <div >
-      <Hello/>
-      <div style={style}>{name}</div>
-      <div className="gray-box"></div>
-    </div>
+    <Wrapper>
+    
+        <Hello name="react" color="red"/>
+        <div style={style}>{name}</div>
+        <Hi name='react-tutorial'/>
+    
+    </Wrapper>
   );
 }
 
