@@ -3,6 +3,8 @@ import './App.css';
 
 import Wrapper from './wrapper';
 import Counter from './Counter';
+import InputSample from './InputSample';
+import UserList from './UserList';
 
 function App() {
   const name = 'react';
@@ -18,11 +20,17 @@ function App() {
     //2.1 <></> 도 사용해도 된다.
     {/*주석주석주석*/}
   return (
+    <>
     <Wrapper>
     
-        <Counter style={ { name, style }}></Counter>
+        <>
+          <Counter style={ { name, style }}></Counter>
+          <InputSample></InputSample>
+        </>
     
     </Wrapper>
+    <UserList></UserList>
+    </>
   );
 }
 
