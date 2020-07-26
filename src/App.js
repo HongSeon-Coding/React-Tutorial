@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import Hello from './Hello';
-import Hi from './Hi'
+
 import Wrapper from './wrapper';
+import Counter from './Counter';
 
 function App() {
   const name = 'react';
@@ -20,9 +20,7 @@ function App() {
   return (
     <Wrapper>
     
-        <Hello name="react" color="red"/>
-        <div style={style}>{name}</div>
-        <Hi name='react-tutorial'/>
+        <Counter style={ { name, style }}></Counter>
     
     </Wrapper>
   );
