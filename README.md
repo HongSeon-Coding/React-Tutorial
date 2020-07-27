@@ -15,4 +15,5 @@ const [ arg, arg ] = useState(init),
 여러개 할당의 경우 객체를 이용한 접근 활용,
 ...(spread) 문법 사용 필수 (불변성 지키기)
 
-### 2.1 특정 DOM 선택하기
+### 1.5 특정 DOM 선택하기
+const name = useRef();

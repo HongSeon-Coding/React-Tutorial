@@ -1,35 +1,57 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import './App.css';
-
-import Wrapper from './wrapper';
-import Counter from './Counter';
-import InputSample from './InputSample';
 import UserList from './UserList';
+import CreateUser from './CreateUser';
 
 function App() {
-  const name = 'react';
-  const style = {
-    backgroundColor: 'black',
-    color:'aqua',
-    fontSize:24,
-    padding:'1rem'
+  const [ inputs, setInputs ] = useState({
+    username:'',
+    email:'',
+  });
+  const { username, email } = inputs
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    setInputs({
+      ...inputs,
+      [name]:value
+    });
   };
-    //JSX 규칙
-    //1. tag는 반드시 닫아야한다. input,br 등 조심
-    //2. 2개 이상의 tag는 하나의 tag로 감싸야한다.
-    //2.1 <></> 도 사용해도 된다.
-    {/*주석주석주석*/}
+    const [users, setUsers] = useState([
+      {
+          id:1,
+          username:'hi',
+          comments:'lalalalal'
+      },
+      {
+          id:2,
+          username:'hello',
+          comments:'lalalalal'
+      },
+      {
+          id:3,
+          username:'bye',
+          comments:'lalalalal'
+      }
+  
+  ]);
+  const nextId = useRef(4);
+  const onCreate = () => {
+    const user = {
+      id: nextId.current,
+      username,
+      email,
+    };
+    setUsers([...users, user])
+    setInputs({
+      username:'',
+      email:''
+    });
+    nextId.current += 1;
+  }
   return (
     <>
-    <Wrapper>
-    
-        <>
-          <Counter style={ { name, style }}></Counter>
-          <InputSample></InputSample>
-        </>
-    
-    </Wrapper>
-    <UserList></UserList>
+      <CreateUser username={username} email={email} onChange={onChange} onCreate={onCreate}></CreateUser>
+      <UserList users={users}></UserList>
     </>
   );
 }
